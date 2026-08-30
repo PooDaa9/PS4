@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" manifest="cache.appcache">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -46,10 +46,10 @@
   }
 
   #wrap {
-    padding: 20px 24px;
+    padding: 40px 60px;
     position: relative;
     z-index: 1;
-    max-width: 750px;
+    max-width: 750px; /* was 600px, now 25% bigger */
     width: 100%;
     margin: 16px;
   }
@@ -243,13 +243,5 @@
 <script type="module">
   import "./chain_lapse.js";
 </script>
-
-<!-- تفعيل Service Worker -->
-<script>
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js');
-}
-</script>
-
 </body>
 </html>
