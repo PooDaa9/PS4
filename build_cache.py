@@ -19,7 +19,6 @@ def get_file_hash(filepath):
 def generate_cache_manifest():
     """توليد ملف cache.appcache مع الهاش"""
     
-    # الملفات المطلوبة
     files = [
         'index.html',
         'run_lapse.html',

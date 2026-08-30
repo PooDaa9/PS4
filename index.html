@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" manifest="cache.appcache">
+<html lang="ar">
 <head>
 
 <meta charset="utf-8">
@@ -97,14 +97,14 @@ body::after {
 
 
 /* =====================================================
-   MAIN CONTAINER - smaller by 20% (was 750px, now 600px)
+   MAIN CONTAINER
    ===================================================== */
 
 #container {
 
   width: 100%;
 
-  max-width: 500px;
+  max-width: 600px;
 
   padding:
     22px
@@ -146,7 +146,7 @@ body::after {
 
 
 /* =====================================================
-   HEADER - NEW NAME & PHONE
+   HEADER
    ===================================================== */
 
 #main-header {
@@ -289,7 +289,7 @@ body::after {
 
 
 /* =====================================================
-   CARD - SMALLER PADDING
+   CARD
    ===================================================== */
 
 .card {
@@ -328,7 +328,7 @@ body::after {
 
 
 /* =====================================================
-   STATE - SMALLER
+   STATE
    ===================================================== */
 
 #state {
@@ -386,7 +386,7 @@ body::after {
 
 
 /* =====================================================
-   DETAILS - SMALLER
+   DETAILS
    ===================================================== */
 
 #det {
@@ -879,18 +879,6 @@ body::after {
 
 </div>
 
-<script>
-// تفعيل Service Worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then(registration => {
-      console.log('✅ Service Worker مسجل بنجاح');
-    })
-    .catch(error => {
-      console.log('❌ فشل تسجيل Service Worker:', error);
-    });
-}
-</script>
 
 <div class="footer-brand">
   PS4 AI TOOL
@@ -1155,227 +1143,34 @@ if ('serviceWorker' in navigator) {
     }
 
 
-    var ac =
-        window.applicationCache;
-
-
-    if (
-        !ac ||
-        !document.documentElement
-            .hasAttribute("manifest")
-    ) {
-
-        go();
-
-    }
-
-    else if (!navigator.onLine) {
-
-        setCache(
-            "غير متصل — التشغيل من التخزين المؤقت",
-            true
-        );
-
-        go();
-
-    }
-
-    else if (
-        ac.status === ac.IDLE
-    ) {
-
-        setCache(
-            "التخزين المؤقت جاهز",
-            true
-        );
-
-        go();
-
-    }
-
-    else if (
-        ac.status === ac.UPDATEREADY
-    ) {
-
-        try {
-            ac.swapCache();
-        }
-        catch (e) {}
-
-
-        setCache(
-            "تم تحميل التحديث",
-            true
-        );
-
-
-        waitForTap(
-            "تحديث جاهز — اضغط للتحديث والتشغيل",
-            function () {
-
-                location.reload();
-
-            }
-        );
-
-    }
-
-    else {
-
-
-        setCache(
-            "جارٍ التحقق من التخزين المؤقت..."
-        );
-
-
-        ac.addEventListener(
-            "downloading",
-            function () {
-
-                setCache(
-                    "التخزين المؤقت للمرة الأولى..."
-                );
-
-            },
-            false
-        );
-
-
-        ac.addEventListener(
-            "progress",
-            function (e) {
-
-                if (
-                    e &&
-                    e.total
-                ) {
-
-                    setCache(
-                        "تخزين "
-                        +
-                        Math.round(
-                            (e.loaded / e.total) * 100
-                        )
-                        +
-                        "%"
-                    );
-
-                }
-
-            },
-            false
-        );
-
-
-        ac.addEventListener(
-            "cached",
-            function () {
-
-                setCache(
-                    "تم التخزين المؤقت — جاهز للاستخدام دون اتصال",
-                    true
-                );
-
-
-                waitForTap(
-                    "جاهز — اضغط للتشغيل",
-                    go
-                );
-
-            },
-            false
-        );
-
-
-        ac.addEventListener(
-            "updateready",
-            function () {
-
-                try {
-                    ac.swapCache();
-                }
-                catch (e) {}
-
-
-                setCache(
-                    "التحديث جاهز",
-                    true
-                );
-
-
-                waitForTap(
-                    "تحديث جاهز — اضغط لإعادة التحميل",
-                    function () {
-
-                        location.reload();
-
-                    }
-                );
-
-            },
-            false
-        );
-
-
-        ac.addEventListener(
-            "noupdate",
-            function () {
-
-                setCache(
-                    "التخزين المؤقت جاهز",
-                    true
-                );
-
-
+    // استخدام Service Worker بدل Application Cache
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+                console.log('✅ Service Worker مسجل بنجاح');
+                setCache('Service Worker جاهز', true);
                 go();
-
-            },
-            false
-        );
-
-
-        ac.addEventListener(
-            "error",
-            function () {
-
-                setCache(
-                    "فشل التخزين المؤقت"
-                );
-
-
-                waitForTap(
-                    "فشل التخزين — اضغط للتشغيل رغم ذلك",
-                    go
-                );
-
-            },
-            false
-        );
-
-
-        ac.addEventListener(
-            "obsolete",
-            function () {
-
-                setCache(
-                    "التخزين المؤقت قديم"
-                );
-
-
-                waitForTap(
-                    "التخزين قديم — اضغط للتشغيل",
-                    go
-                );
-
-            },
-            false
-        );
-
+            })
+            .catch(function(error) {
+                console.log('❌ فشل تسجيل Service Worker:', error);
+                setCache('فشل Service Worker - تشغيل بدون كاش');
+                go();
+            });
+    } else {
+        // لو مش مدعوم، شغل عادي
+        setCache('Service Worker غير مدعوم');
+        go();
     }
-
 
 })();
 
+</script>
+
+<!-- تفعيل Service Worker -->
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+}
 </script>
 
 </body>

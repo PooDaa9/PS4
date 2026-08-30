@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" manifest="cache.appcache">
+<html lang="ar">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -46,10 +46,10 @@
   }
 
   #wrap {
-    padding: 40px 60px;
+    padding: 20px 24px;
     position: relative;
     z-index: 1;
-    max-width: 750px; /* was 600px, now 25% bigger */
+    max-width: 750px;
     width: 100%;
     margin: 16px;
   }
@@ -238,25 +238,18 @@
   <div id="out"></div>
 </div>
 
-
-<script>
-// تفعيل Service Worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then(registration => {
-      console.log('✅ Service Worker مسجل بنجاح');
-    })
-    .catch(error => {
-      console.log('❌ فشل تسجيل Service Worker:', error);
-    });
-}
-</script>
-
-
 <div class="footer">PS4 AI TOOL • Lapse</div>
 
 <script type="module">
   import "./chain_lapse.js";
 </script>
+
+<!-- تفعيل Service Worker -->
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+}
+</script>
+
 </body>
 </html>
