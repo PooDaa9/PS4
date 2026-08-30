@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" manifest="cache.appcache">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>بودا بلايستيشن 01278566009</title>
+<style>
+  html, body { 
+    margin:0; 
+    padding:0; 
+    background:#0b0d10; 
+    color:#c8ced8;
+    font:15px/1.45 "Segoe UI", system-ui, sans-serif; 
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  #wrap { 
+    padding:20px 24px; 
+    max-width:750px;
+    width:100%;
+    margin:16px;
+  }
+
+  /* الهيدر الجديد */
+  #header {
+    text-align:center;
+    margin-bottom:16px;
+    padding:18px 20px 14px;
+    background:rgba(10,15,24,0.80);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+    border-radius:28px;
+    border:1px solid rgba(100,160,255,0.18);
+    box-shadow:0 8px 32px rgba(0,0,0,0.5), 0 0 40px rgba(30,100,255,0.06);
+  }
+
+  #header h1 {
+    font-size:36px;
+    font-weight:850;
+    background:linear-gradient(135deg, #d9ecff 0%, #7aa9f0 50%, #4d7edb 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    letter-spacing:-0.3px;
+    margin-bottom:4px;
+    text-shadow:0 0 30px rgba(74,144,226,0.25);
+  }
+
+  #header .sub {
+    font-size:14px;
+    color:#9ebce0;
+    letter-spacing:0.5px;
+    font-weight:500;
+    -webkit-text-fill-color:#9ebce0;
+    text-shadow:0 0 10px rgba(70,140,255,0.2);
+  }
+
+  #header .sub span {
+    color:#c5e0ff;
+    font-weight:700;
+  }
+
+  #header .phone {
+    font-size:20px;
+    font-weight:700;
+    color:#b3d6ff;
+    margin-top:6px;
+    text-shadow:0 0 12px rgba(90,170,255,0.5), 0 0 25px rgba(50,120,255,0.3);
+    letter-spacing:0.5px;
+    display:block;
+    direction:ltr;
+    -webkit-text-fill-color:#b3d6ff;
+  }
+
+  #header .phone small {
+    font-weight:400;
+    font-size:15px;
+    color:#7a9bc0;
+    margin-left:6px;
+    -webkit-text-fill-color:#7a9bc0;
+  }
+
+  #state { 
+    font-size:20px; 
+    font-weight:700; 
+    margin:0 0 4px; 
+    padding:10px 14px;
+    background:rgba(18,24,34,0.6);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.05);
+    text-shadow:0 2px 16px rgba(0,0,0,0.5);
+    text-align:center;
+    min-height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .sub { 
+    color:#61708a; 
+    font-size:13px; 
+    margin:8px 0 12px; 
+    padding:10px 14px;
+    background:rgba(18,24,34,0.4);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.04);
+    text-align:center;
+    line-height:1.6;
+  }
+
+  .sub code {
+    color:#8aa3c9;
+    background:rgba(74,144,226,0.12);
+    padding:1px 8px;
+    border-radius:6px;
+    font-size:12px;
+  }
+
+  #out { 
+    white-space:pre-wrap; 
+    font:12px/1.45 Consolas, monospace;
+    background:rgba(10,15,24,0.80);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(100,160,255,0.14);
+    border-radius:16px;
+    padding:14px 16px; 
+    min-height:280px;
+    max-height:480px;
+    overflow-y:auto; 
+    box-shadow:inset 0 2px 16px rgba(0,0,0,0.4), 0 0 30px rgba(40,110,255,0.04);
+    color:#c8ced8;
+  }
+
+  #out::-webkit-scrollbar {
+    width:5px;
+  }
+  #out::-webkit-scrollbar-track {
+    background:rgba(255,255,255,0.02);
+    border-radius:10px;
+  }
+  #out::-webkit-scrollbar-thumb {
+    background:rgba(74,144,226,0.3);
+    border-radius:10px;
+  }
+  #out::-webkit-scrollbar-thumb:hover {
+    background:rgba(74,144,226,0.5);
+  }
+
+  .ok { color:#7fd0a0; } 
+  .bad { color:#d08a7f; } 
+  .warn { color:#d8c07f; }
+
+  .footer {
+    position:fixed;
+    bottom:14px;
+    right:22px;
+    z-index:2;
+    font-size:12px;
+    color:rgba(150,200,255,0.55);
+    letter-spacing:1px;
+    font-weight:500;
+    text-shadow:0 0 8px rgba(60,130,255,0.45), 0 0 18px rgba(30,90,255,0.30);
+    text-transform:uppercase;
+  }
+
+  @media (max-width:600px) {
+    #wrap { padding:12px 14px; max-width:94%; margin:10px; }
+    #header { padding:14px 14px 12px; border-radius:22px; }
+    #header h1 { font-size:28px; }
+    #header .sub { font-size:12px; }
+    #header .phone { font-size:17px; }
+    #state { font-size:17px; padding:8px 12px; min-height:44px; }
+    .sub { font-size:12px; padding:8px 10px; }
+    #out { font-size:11px; padding:10px 12px; min-height:220px; max-height:380px; }
+    .footer { font-size:10px; right:12px; bottom:8px; }
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+
+  <!-- الهيدر مع بودا بلايستيشن ورقم التليفون -->
+  <div id="header">
+    <h1>بودا بلايستيشن</h1>
+    <div class="sub">
+      <span>sysctl &bull; PSID Reader</span>
+    </div>
+    <div class="phone">
+      <small>📞</small> 01278566009
+    </div>
+  </div>
+
+  <div id="state">loading...</div>
+  <p class="sub"><b>DRY.</b> WebKit primitive and syscalls only &mdash; no aio,
+     no netcontrol, no double free, nothing armed. It reads sysctls and puts
+     <code>Math.expm1</code> back. Safe to run as often as you like; no reboot.</p>
+  <div id="out"></div>
+
+</div>
+
+<div class="footer">PS4 AI TOOL • sysctl</div>
+
+<script type="module">import "./sysctl.js";</script>
+</body>
+</html>
