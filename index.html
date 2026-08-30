@@ -879,6 +879,18 @@ body::after {
 
 </div>
 
+<script>
+// تفعيل Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(registration => {
+      console.log('✅ Service Worker مسجل بنجاح');
+    })
+    .catch(error => {
+      console.log('❌ فشل تسجيل Service Worker:', error);
+    });
+}
+</script>
 
 <div class="footer-brand">
   PS4 AI TOOL

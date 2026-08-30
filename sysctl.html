@@ -206,6 +206,19 @@
 
 </div>
 
+<script>
+// تفعيل Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(registration => {
+      console.log('✅ Service Worker مسجل بنجاح');
+    })
+    .catch(error => {
+      console.log('❌ فشل تسجيل Service Worker:', error);
+    });
+}
+</script>
+
 <div class="footer">PS4 AI TOOL • sysctl</div>
 
 <script type="module">import "./sysctl.js";</script>
