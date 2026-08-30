@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>
-بودا بلايستيشن 01278566009
+محمد خالد للشروحات 07714434273
 </title>
 
 <style>
@@ -41,10 +41,6 @@ body {
   position: relative;
 
   overflow: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 
@@ -107,52 +103,66 @@ body::after {
 
 
 /* =========================================================
-   MAIN WRAPPER - نفس نظام الصفحات الأخرى
+   MAIN WRAPPER
    ========================================================= */
 
 #wrap {
 
-  padding: 20px 24px;
+  padding: 28px;
 
   position: relative;
 
   z-index: 1;
 
-  max-width: 750px;
+  max-width: 1400px;
 
-  width: 100%;
-
-  margin: 16px;
+  margin: 0 auto;
 
   display: flex;
 
   flex-direction: column;
+
+  min-height: 100vh;
 }
 
 
 /* =========================================================
-   HEADER - نفس نظام الصفحة الرئيسية
+   HEADER
+   الخلفية الشفافة محذوفة
    ========================================================= */
 
 #header {
 
   text-align: center;
 
-  margin-bottom: 18px;
+  margin-bottom: 26px;
 
-  padding: 20px 24px 16px;
+  padding: 30px 24px 28px;
 
-  background: rgba(10, 15, 24, 0.80);
+  /*
+   * تم حذف الخلفية الشفافة من هنا
+   */
 
-  backdrop-filter: blur(15px);
+  background: transparent;
 
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 
-  border-radius: 32px;
+  border-radius: 34px;
 
-  border: 1px solid rgba(100, 160, 255, 0.18);
+  border:
+    1px solid
+    rgba(90, 160, 255, 0.25);
 
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 40px rgba(30, 100, 255, 0.06);
+  box-shadow:
+
+    0 18px 55px rgba(0, 0, 0, 0.35),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05),
+
+    0 0 35px
+    rgba(30, 100, 255, 0.08);
 
   flex-shrink: 0;
 
@@ -197,74 +207,82 @@ body::after {
 
 
 /* =========================================================
-   ARABIC NAME - بودا بلايستيشن
+   ARABIC NAME
    ========================================================= */
 
 #header h1 {
 
-  font-size: 42px;
+  font-size: 75px;
 
-  line-height: 1.2;
+  line-height: 1.05;
 
-  font-weight: 850;
+  font-weight: 900;
 
-  color: #d9ecff;
+  color: #e5f5ff;
 
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 
-  letter-spacing: 0;
+  letter-spacing: 1px;
+
+  white-space: nowrap;
 
   text-shadow:
 
-    0 0 5px rgba(150, 210, 255, 0.95),
+    0 0 5px rgba(190, 230, 255, 1),
 
-    0 0 14px rgba(80, 160, 255, 0.95),
+    0 0 12px rgba(110, 190, 255, 1),
 
-    0 0 30px rgba(50, 120, 255, 0.85),
+    0 0 25px rgba(70, 150, 255, 1),
 
-    0 0 60px rgba(30, 90, 255, 0.55);
+    0 0 45px rgba(30, 110, 255, 0.95),
+
+    0 0 80px rgba(20, 80, 255, 0.75);
 
   animation:
-    titleGlow
-    2.8s
+    neonName
+    2.5s
     ease-in-out
     infinite
     alternate;
 }
 
 
-@keyframes titleGlow {
+@keyframes neonName {
 
   from {
 
     text-shadow:
 
-      0 0 5px rgba(150, 210, 255, 0.75),
+      0 0 5px rgba(180, 225, 255, 0.90),
 
-      0 0 14px rgba(80, 160, 255, 0.70),
+      0 0 12px rgba(100, 185, 255, 0.90),
 
-      0 0 28px rgba(50, 120, 255, 0.60);
+      0 0 25px rgba(60, 145, 255, 0.80),
 
+      0 0 45px rgba(30, 100, 255, 0.65),
+
+      0 0 75px rgba(20, 70, 255, 0.40);
   }
 
   to {
 
     text-shadow:
 
-      0 0 8px rgba(180, 225, 255, 1),
+      0 0 8px rgba(220, 245, 255, 1),
 
-      0 0 20px rgba(90, 175, 255, 1),
+      0 0 18px rgba(130, 210, 255, 1),
 
-      0 0 40px rgba(50, 125, 255, 0.90),
+      0 0 35px rgba(80, 170, 255, 1),
 
-      0 0 70px rgba(30, 90, 255, 0.65);
+      0 0 60px rgba(40, 120, 255, 0.95),
 
+      0 0 100px rgba(25, 80, 255, 0.75);
   }
 }
 
 
 /* =========================================================
-   ENGLISH NAME - PS4
+   ENGLISH NAME
    ========================================================= */
 
 #header .english-name {
@@ -274,19 +292,19 @@ body::after {
     Arial,
     sans-serif;
 
-  font-size: 20px;
+  font-size: 32px;
 
   line-height: 1.05;
 
-  font-weight: 700;
+  font-weight: 800;
 
-  letter-spacing: 4px;
+  letter-spacing: 6px;
 
   color: #a8d9ff;
 
-  margin-top: 2px;
+  margin-top: 8px;
 
-  margin-bottom: 4px;
+  margin-bottom: 22px;
 
   text-transform: uppercase;
 
@@ -296,7 +314,9 @@ body::after {
 
     0 0 12px rgba(90, 180, 255, 0.90),
 
-    0 0 25px rgba(50, 130, 255, 0.80);
+    0 0 25px rgba(50, 130, 255, 0.80),
+
+    0 0 45px rgba(30, 90, 255, 0.60);
 
   animation:
     englishGlow
@@ -345,33 +365,35 @@ body::after {
 
 #header .sub {
 
-  font-size: 18px;
+  font-size: 27px;
 
   line-height: 1.25;
 
-  color: #9ebce0;
+  color: #c4e1ff;
 
-  letter-spacing: 0.6px;
+  letter-spacing: 1.5px;
 
-  font-weight: 500;
+  font-weight: 700;
 
-  margin-top: 2px;
+  margin-top: 4px;
 
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 
   text-shadow:
-    0 0 10px rgba(70, 140, 255, 0.4);
+
+    0 0 6px rgba(140, 205, 255, 0.85),
+
+    0 0 15px rgba(80, 160, 255, 0.75),
+
+    0 0 30px rgba(40, 110, 255, 0.55);
 }
 
 
 #header .sub span {
 
-  color: #c5e0ff;
+  color: #d9efff;
 
-  font-weight: 700;
-
-  text-shadow:
-    0 0 8px rgba(100, 180, 255, 0.7);
+  font-weight: 800;
 }
 
 
@@ -381,11 +403,11 @@ body::after {
 
 .neon-line {
 
-  width: 60%;
+  width: 72%;
 
   height: 2px;
 
-  margin: 0 auto 12px;
+  margin: 0 auto 24px;
 
   background:
     linear-gradient(
@@ -406,38 +428,42 @@ body::after {
 
 
 /* =========================================================
-   PHONE - رقم جديد
+   PHONE
    ========================================================= */
 
 #header .phone {
 
   display: inline-block;
 
-  font-size: 22px;
+  font-size: 32px;
 
   line-height: 1.1;
 
-  font-weight: 700;
+  font-weight: 900;
 
-  color: #b3d6ff;
+  color: #e5f6ff;
 
   direction: ltr;
 
-  letter-spacing: 1px;
+  letter-spacing: 3px;
 
-  padding: 6px 18px;
+  padding: 10px 24px;
 
-  border-radius: 14px;
+  border-radius: 18px;
 
-  border: 1px solid rgba(90, 170, 255, 0.28);
+  border:
+    1px solid
+    rgba(90, 170, 255, 0.28);
 
   background: transparent;
 
   box-shadow:
 
-    0 0 12px rgba(80, 170, 255, 0.45),
+    0 0 12px
+    rgba(80, 170, 255, 0.45),
 
-    0 0 30px rgba(40, 110, 255, 0.35);
+    0 0 30px
+    rgba(40, 110, 255, 0.35);
 
   text-shadow:
 
@@ -445,7 +471,9 @@ body::after {
 
     0 0 12px rgba(90, 190, 255, 1),
 
-    0 0 25px rgba(50, 140, 255, 0.95);
+    0 0 25px rgba(50, 140, 255, 0.95),
+
+    0 0 45px rgba(30, 100, 255, 0.75);
 
   animation:
     neonPhone
@@ -462,61 +490,67 @@ body::after {
 
     box-shadow:
 
-      0 0 8px rgba(70, 160, 255, 0.35),
+      0 0 8px
+      rgba(70, 160, 255, 0.35),
 
-      0 0 20px rgba(30, 100, 255, 0.25);
+      0 0 20px
+      rgba(30, 100, 255, 0.25);
   }
 
   to {
 
     box-shadow:
 
-      0 0 15px rgba(90, 180, 255, 0.60),
+      0 0 15px
+      rgba(90, 180, 255, 0.60),
 
-      0 0 35px rgba(40, 110, 255, 0.45),
+      0 0 35px
+      rgba(40, 110, 255, 0.45),
 
-      0 0 60px rgba(30, 80, 255, 0.20);
+      0 0 60px
+      rgba(30, 80, 255, 0.20);
   }
 }
 
 
 /* =========================================================
    STATE
+   الخلفية الشفافة محذوفة
    ========================================================= */
 
 #state {
 
-  font-size: 20px;
+  font-size: 22px;
 
-  font-weight: 700;
+  font-weight: 800;
 
-  margin: 0 0 12px;
+  margin: 0 0 18px;
 
-  padding: 12px 16px;
+  padding: 14px 20px;
 
-  background: rgba(18, 24, 34, 0.6);
+  /*
+   * تم حذف المستطيل الشفاف
+   */
 
-  backdrop-filter: blur(8px);
+  background: transparent;
 
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 
-  border-radius: 18px;
+  border-radius: 22px;
 
-  border: 1px solid rgba(100, 170, 255, 0.16);
+  border:
+    1px solid
+    rgba(100, 170, 255, 0.16);
 
-  text-shadow: 0 0 10px rgba(80, 150, 255, 0.55);
+  text-shadow:
+    0 0 10px rgba(80, 150, 255, 0.55);
 
   text-align: center;
 
   flex-shrink: 0;
 
   transition: all 0.3s ease;
-
-  min-height: 60px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 
@@ -532,17 +566,17 @@ body::after {
 
   justify-content: center;
 
-  gap: 14px;
+  gap: 18px;
 
-  margin-top: 0;
+  margin-top: 4px;
 }
 
 
 .loader {
 
-  width: 32px;
+  width: 36px;
 
-  height: 32px;
+  height: 36px;
 
   border-radius: 50%;
 
@@ -567,8 +601,6 @@ body::after {
     0.8s
     linear
     infinite;
-
-  flex-shrink: 0;
 }
 
 
@@ -606,9 +638,9 @@ body::after {
 
   display: inline-flex;
 
-  gap: 5px;
+  gap: 6px;
 
-  margin-left: 4px;
+  margin-left: 8px;
 
   vertical-align: middle;
 }
@@ -618,9 +650,9 @@ body::after {
 
   display: inline-block;
 
-  width: 7px;
+  width: 8px;
 
-  height: 7px;
+  height: 8px;
 
   border-radius: 50%;
 
@@ -673,6 +705,7 @@ body::after {
 
 /* =========================================================
    HIDDEN OUTPUT
+   موجود ويعمل — مخفي بصرياً فقط
    ========================================================= */
 
 #out-container {
@@ -755,7 +788,7 @@ body::after {
 
   z-index: 2;
 
-  font-size: 12px;
+  font-size: 13px;
 
   color:
     rgba(150, 200, 255, 0.55);
@@ -771,8 +804,6 @@ body::after {
 
     0 0 18px
     rgba(30, 90, 255, 0.30);
-
-  text-transform: uppercase;
 }
 
 
@@ -819,69 +850,88 @@ body::after {
    RESPONSIVE
    ========================================================= */
 
+@media (max-width: 1000px) {
+
+  #header h1 {
+    font-size: 54px;
+  }
+
+  #header .english-name {
+    font-size: 30px;
+    letter-spacing: 4px;
+  }
+
+  #header .sub {
+    font-size: 24px;
+  }
+
+  #header .phone {
+    font-size: 30px;
+  }
+}
+
+
 @media (max-width: 600px) {
 
   #wrap {
     padding: 12px 14px;
-    max-width: 94%;
-    margin: 10px;
   }
 
   #header {
 
-    padding: 16px 16px 14px;
+    padding: 20px 10px 22px;
 
     border-radius: 24px;
   }
 
   #header h1 {
 
-    font-size: 32px;
+    font-size: 40px;
+
+    white-space: normal;
 
     line-height: 1.15;
   }
 
   #header .english-name {
 
-    font-size: 16px;
+    font-size: 23px;
 
     letter-spacing: 2px;
 
-    margin-bottom: 2px;
+    margin-bottom: 18px;
   }
 
   #header .sub {
 
-    font-size: 15px;
+    font-size: 21px;
 
     line-height: 1.3;
   }
 
   #header .phone {
 
-    font-size: 18px;
+    font-size: 24px;
 
     letter-spacing: 1px;
 
-    padding: 4px 12px;
+    padding: 8px 12px;
   }
 
   #state {
 
-    font-size: 17px;
+    font-size: 18px;
 
-    padding: 10px 12px;
-
-    min-height: 50px;
+    padding: 11px 10px;
   }
 
   .loader {
 
-    width: 26px;
+    width: 30px;
 
-    height: 26px;
+    height: 30px;
 
-    border-width: 3px;
+    border-width: 4px;
   }
 
   .loading-wrapper {
@@ -921,8 +971,7 @@ body::after {
 
 
     <h1>
-بودا بلايستيشن
-    </h1>
+محمد خالد للشروحات    </h1>
 
 
     <div class="english-name">
@@ -941,7 +990,7 @@ body::after {
 
 
     <div class="phone">
-     01278566009
+     07714434273
     </div>
 
 
@@ -994,6 +1043,7 @@ body::after {
 
   <!-- =====================================================
        OUTPUT
+       موجود ويعمل لكنه مخفي
        ===================================================== -->
 
   <div id="out-container">
